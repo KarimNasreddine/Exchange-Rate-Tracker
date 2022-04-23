@@ -1,5 +1,6 @@
 package com.maarouf.exchange;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -48,6 +49,10 @@ public class Parent implements Initializable, OnPageCompleteListener{
         swapContent(Section.RATES);
     }
 
+    public void graphSelected(ActionEvent actionEvent) {
+        swapContent(Section.GRAPH);
+    }
+
     private void swapContent(Section section) {
         try {
             URL url = getClass().getResource(section.getResource());
@@ -79,7 +84,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
         RATES,
         TRANSACTIONS,
         LOGIN,
-        REGISTER;
+        REGISTER,
+        GRAPH;
         public String getResource() {
             return switch (this) {
                 case RATES ->
@@ -90,6 +96,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
                         "/com/maarouf/exchange/login/login.fxml";
                 case REGISTER ->
                         "/com/maarouf/exchange/register/register.fxml";
+                case GRAPH ->
+                        "/com/maarouf/exchange/graph/graph.fxml";
                 default -> null;
             };
         }

@@ -1,9 +1,6 @@
 package com.maarouf.exchange.api;
 
-import com.maarouf.exchange.api.model.ExchangeRates;
-import com.maarouf.exchange.api.model.Token;
-import com.maarouf.exchange.api.model.Transaction;
-import com.maarouf.exchange.api.model.User;
+import com.maarouf.exchange.api.model.*;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -30,4 +27,7 @@ public interface Exchange {
     @GET("/transaction")
     Call<List<Transaction>> getTransactions(@Header("Authorization")
                                                     String authorization);
+
+    @GET("/graph")
+    Call<GraphDataPoints> getGraphDataPoints();
 }
