@@ -60,6 +60,9 @@ class MainActivity : AppCompatActivity() {
                 1 -> {
                     tab.text = "Transactions"
                 }
+                2 -> {
+                    tab.text = "Graph"
+                }
             }
         }.attach()
     }

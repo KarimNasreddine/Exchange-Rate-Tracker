@@ -1,9 +1,6 @@
 package com.maarouf.currencyexchange.api
 
-import com.maarouf.currencyexchange.api.model.ExchangeRates
-import com.maarouf.currencyexchange.api.model.Token
-import com.maarouf.currencyexchange.api.model.Transaction
-import com.maarouf.currencyexchange.api.model.User
+import com.maarouf.currencyexchange.api.model.*
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,7 +21,7 @@ object ExchangeService {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         // Create an instance of our Exchange API interface.
-        return retrofit.create(Exchange::class.java);
+        return retrofit.create(Exchange::class.java)
     }
     interface Exchange {
         @GET("/exchangeRate")
@@ -42,5 +39,7 @@ object ExchangeService {
         @GET("/transaction")
         fun getTransactions(@Header("Authorization") authorization: String): Call<List<Transaction>>
 
+        @GET("/graph")
+        fun getGraphDataPoints(): Call<GraphDataPoints>
     }
 }
