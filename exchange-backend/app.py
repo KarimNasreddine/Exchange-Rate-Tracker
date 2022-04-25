@@ -125,51 +125,6 @@ def authenticate():
             "token": token
         }
     )
-   
-@app.route('/graph', methods=['GET'])
-def get_daily_rate():
-    transactions = Transaction.query.all()
-
-    usd_to_lbp_dict = {}
-    lbp_to_usd_dict = {}
-
-    #todays date
-    today = datetime.datetime.now()
-    #adding today and last 10 days to each dictionary
-    for i in range(10):
-        usd_to_lbp_dict[today.strftime("%Y-%m-%d")] = 0
-        lbp_to_usd_dict[today.strftime("%Y-%m-%d")] = 0
-        today = today - datetime.timedelta(days=1)
-
-    #function to get the rate of usd_to_lbp transactions of certain day
-    def get_usd_to_lbp_rate(date):
-        daily_rate=[]
-        for i in transactions:
-            if i.usd_to_lbp == True and i.added_date.strftime("%Y-%m-%d") == date:
-                daily_rate.append(i.lbp_amount / i.usd_amount)
-        if len(daily_rate) == 0:
-            return 0
-        return sum(daily_rate) / len(daily_rate)
-    
-    #function to get the rate of lbp_to_usd transactions of certain day
-    def get_lbp_to_usd_rate(date):
-        daily_rate=[]
-        for i in transactions:
-            if i.usd_to_lbp == False and i.added_date.strftime("%Y-%m-%d") == date:
-                daily_rate.append(i.lbp_amount / i.usd_amount)
-        if len(daily_rate) == 0:
-            return 0
-        return sum(daily_rate) / len(daily_rate)
-
-    #loop over each key of usd_to_lbp_dict and get the rate of usd_to_lbp transactions of that day
-    for key in usd_to_lbp_dict:
-        usd_to_lbp_dict[key] = get_usd_to_lbp_rate(key)
-    
-    #loop over each key of lbp_to_usd_dict and get the rate of lbp_to_usd transactions of that day
-    for key in lbp_to_usd_dict:
-        lbp_to_usd_dict[key] = get_lbp_to_usd_rate(key)
-
-    return jsonify({'sell':usd_to_lbp_dict, 'buy':lbp_to_usd_dict})
 
 @app.route('/graph', methods=['GET'])
 def get_daily_rate():
