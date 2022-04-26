@@ -19,11 +19,14 @@ class TabsPagerAdapter (fm: FragmentManager, lifecycle: Lifecycle) :
             2 -> {
                 GraphFragment()
             }
+            3 -> {
+                InsightsFragment()
+            }
             else -> ExchangeFragment()
         }
     }
     override fun getItemCount(): Int {
-        return 3
+        return 4
     }
 
 }

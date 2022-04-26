@@ -41,5 +41,8 @@ object ExchangeService {
 
         @GET("/graph")
         fun getGraphDataPoints(): Call<GraphDataPoints>
+
+        @GET("/insights")
+        fun getInsights(): Call<InsightsData>
     }
 }
