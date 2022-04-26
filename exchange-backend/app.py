@@ -126,6 +126,7 @@ def authenticate():
         }
     )
 
+
 @app.route('/graph', methods=['GET'])
 def get_daily_rate():
     transactions = Transaction.query.all()
@@ -155,6 +156,7 @@ def get_daily_rate():
 
     return jsonify({'sell': usd_to_lbp_dict, 'buy': lbp_to_usd_dict})
 
+
 @app.route('/insights', methods=['GET'])  # average, open, close, volume, biggest transaction of past numb of days
 def get_insights():
     usd_to_lbp_avg = {}  # average sell
@@ -163,8 +165,8 @@ def get_insights():
 
     usd_to_lbp_open = {}  # open sell
     lbp_to_usd_open = {}  # open buy
-    usd_to_lbp_clos = {}  # close sell
-    lbp_to_usd_clos = {}  # close buy
+    usd_to_lbp_close = {}  # close sell
+    lbp_to_usd_close = {}  # close buy
     volume_in_trxs = {}  # number of transactions per day in last 2 weeks
     volume_in_usd = {}  # amount of USD transacted with per day in last 2 weeks
 
@@ -197,10 +199,10 @@ def get_insights():
             usd_to_lbp_open[buy_transactions[trx].added_date.strftime("%Y-%m-%d")] = buy_transactions[trx].lbp_amount / buy_transactions[trx].usd_amount
 
         if trx == len(buy_transactions) - 1:
-            usd_to_lbp_clos[buy_transactions[trx].added_date.strftime("%Y-%m-%d")] = buy_transactions[trx].lbp_amount / buy_transactions[trx].usd_amount
+            usd_to_lbp_close[buy_transactions[trx].added_date.strftime("%Y-%m-%d")] = buy_transactions[trx].lbp_amount / buy_transactions[trx].usd_amount
             break
         if buy_transactions[trx].added_date.strftime("%Y-%m-%d") != buy_transactions[trx + 1].added_date.strftime("%Y-%m-%d"):
-            usd_to_lbp_clos[buy_transactions[trx].added_date.strftime("%Y-%m-%d")] = buy_transactions[trx].lbp_amount / buy_transactions[trx].usd_amount
+            usd_to_lbp_close[buy_transactions[trx].added_date.strftime("%Y-%m-%d")] = buy_transactions[trx].lbp_amount / buy_transactions[trx].usd_amount
 
     for trx in range(len(sell_transactions)):
         if trx == 1:
@@ -209,10 +211,10 @@ def get_insights():
             lbp_to_usd_open[sell_transactions[trx].added_date.strftime("%Y-%m-%d")] = sell_transactions[trx].lbp_amount / sell_transactions[trx].usd_amount
 
         if trx == len(sell_transactions) - 1:
-            lbp_to_usd_clos[sell_transactions[trx].added_date.strftime("%Y-%m-%d")] = sell_transactions[trx].lbp_amount / sell_transactions[trx].usd_amount
+            lbp_to_usd_close[sell_transactions[trx].added_date.strftime("%Y-%m-%d")] = sell_transactions[trx].lbp_amount / sell_transactions[trx].usd_amount
             break
         if sell_transactions[trx].added_date.strftime("%Y-%m-%d") != sell_transactions[trx + 1].added_date.strftime("%Y-%m-%d"):
-            lbp_to_usd_clos[sell_transactions[trx].added_date.strftime("%Y-%m-%d")] = sell_transactions[trx].lbp_amount / sell_transactions[trx].usd_amount
+            lbp_to_usd_close[sell_transactions[trx].added_date.strftime("%Y-%m-%d")] = sell_transactions[trx].lbp_amount / sell_transactions[trx].usd_amount
 
     # loop over each key of usd_to_lbp_dict and get the rate of usd_to_lbp transactions of that day
     for key in usd_to_lbp_avg:
@@ -237,7 +239,14 @@ def get_insights():
         # print(trx_on_day, file=sys.stderr)
         today = today - datetime.timedelta(days=1)
 
-    return ""  # whatever you need
+    return jsonify({"usd_to_lbp_avg": usd_to_lbp_avg,
+                    "lbp_to_usd_avg": lbp_to_usd_avg,
+                    "usd_to_lbp_open": usd_to_lbp_open,
+                    "lbp_to_usd_open": lbp_to_usd_open,
+                    "usd_to_lbp_close": usd_to_lbp_close,
+                    "lbp_to_usd_close": lbp_to_usd_close,
+                    "volume_in_trxs": volume_in_trxs,
+                    "volume_in_usd": volume_in_usd})
 
 
 db.create_all()
