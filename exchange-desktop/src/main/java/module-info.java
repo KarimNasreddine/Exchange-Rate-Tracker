@@ -18,4 +18,5 @@ module com.maarouf.exchange {
     opens com.maarouf.exchange.register to javafx.fxml;
     opens com.maarouf.exchange.transactions to javafx.fxml;
     opens com.maarouf.exchange.graph to javafx.fxml;
+    opens com.maarouf.exchange.insights to javafx.fxml;
 }

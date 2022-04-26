@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.maarouf.exchange.insights.Insights"
+            hgap="10"
+            vgap="10"
+            alignment="center"
+            prefHeight="475.0"
+            prefWidth="600.0"
+            stylesheets="@insights.css">
+
+    <Label styleClass="header"
+           text="Open/Close"
+           GridPane.columnSpan="2" />
+
+    <Label styleClass="value-label"
+           text="Sell Open-Close"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="1"
+           textAlignment="CENTER"/>
+    <Label styleClass="value"
+           fx:id="sellOpenCloseLabel"
+           text="N/A"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="2"/>
+
+    <Label styleClass="value-label"
+           text="Buy Open-Close"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="1"
+           textAlignment="CENTER"/>
+    <Label styleClass="value"
+           fx:id="buyOpenCloseLabel"
+           text="N/A"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="2"/>
+
+    <Label styleClass="header"
+           text="Transactions"
+           GridPane.columnSpan="2"
+           GridPane.rowIndex="10" />
+
+    <Label styleClass="value-label"
+           text="Transactions Number"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="11"
+           textAlignment="CENTER"/>
+    <Label styleClass="value"
+           fx:id="transactionsNumberLabel"
+           text="N/A"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="12"/>
+
+    <Label styleClass="value-label"
+           text="Transactions Volume ($)"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="11"
+           textAlignment="CENTER"/>
+    <Label styleClass="value"
+           fx:id="transactionsVolumeLabel"
+           text="N/A"
+           GridPane.columnIndex="2"
+           GridPane.rowIndex="12"/>
+
+</GridPane>

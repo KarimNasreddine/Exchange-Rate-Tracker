@@ -30,4 +30,7 @@ public interface Exchange {
 
     @GET("/graph")
     Call<GraphDataPoints> getGraphDataPoints();
+
+    @GET("/insights")
+    Call<InsightsData> getInsightsData();
 }

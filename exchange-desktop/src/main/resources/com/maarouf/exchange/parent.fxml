@@ -19,6 +19,9 @@
             <Button fx:id="graphButton" styleClass="nav-button"
                     text="Fluctuation Graph"
                     onAction="#graphSelected"/>
+            <Button fx:id="insightsButton" styleClass="nav-button"
+                    text="Insights"
+                    onAction="#insightsSelected"/>
             <Button fx:id="loginButton" styleClass="nav-button"
                     text="Login" onAction="#loginSelected"/>
             <Button fx:id="registerButton" styleClass="nav-button"
