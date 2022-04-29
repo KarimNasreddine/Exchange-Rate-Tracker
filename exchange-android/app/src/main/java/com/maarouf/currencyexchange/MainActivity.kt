@@ -66,6 +66,9 @@ class MainActivity : AppCompatActivity() {
                 3 -> {
                         tab.text = "Insights"
                 }
+                4 -> {
+                        tab.text = "Listings"
+                }
             }
         }.attach()
     }

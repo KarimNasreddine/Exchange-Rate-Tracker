@@ -14,7 +14,8 @@ class retrofit {
 
 }
 object ExchangeService {
-    private const val API_URL: String = "http://10.0.2.2:5000"
+//    private const val API_URL: String = "http://10.0.2.2:5000"
+    private const val API_URL: String = "https://asproject.free.beeceptor.com"
     fun exchangeApi():Exchange {
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(API_URL)
@@ -44,5 +45,8 @@ object ExchangeService {
 
         @GET("/insights")
         fun getInsights(): Call<InsightsData>
+
+        @GET("/listings")
+        fun getListings(): Call<List<ListingsData>>
     }
 }
