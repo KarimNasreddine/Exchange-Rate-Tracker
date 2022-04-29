@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         tabLayout = findViewById(R.id.tabLayout)
         tabsViewPager = findViewById(R.id.tabsViewPager)
-        tabLayout?.tabMode = TabLayout.MODE_FIXED
+        tabLayout?.tabMode = TabLayout.MODE_SCROLLABLE
         tabLayout?.isInlineLabel = true
         // Enable Swipe
         tabsViewPager?.isUserInputEnabled = true
