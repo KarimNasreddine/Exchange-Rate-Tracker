@@ -1,10 +1,15 @@
 package com.maarouf.exchange.listings;
 
+import com.maarouf.exchange.Authentication;
 import com.maarouf.exchange.api.ExchangeService;
 import com.maarouf.exchange.api.model.ListingsData;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,7 +20,10 @@ import java.util.ResourceBundle;
 
 public class Listings implements Initializable {
     public Label listingsLabel;
-
+    public TextField sellAmountTextField;
+    public TextField buyAskAmountTextField;
+    public TextField phoneNumberTextField;
+    public ToggleGroup listingType;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,6 +46,7 @@ public class Listings implements Initializable {
     }
 
     private void displayListings(List<ListingsData> listings) {
+        listingsLabel.setText("");
         int counter = 1;
         for(ListingsData listing : listings) {
             if(!listing.resolved){
@@ -51,5 +60,31 @@ public class Listings implements Initializable {
                 counter++;
             }
         }
+    }
+
+    public void addListing(ActionEvent actionEvent) {
+        ListingsData listing = new ListingsData(
+                phoneNumberTextField.getText(),
+                Integer.parseInt(sellAmountTextField.getText()),
+                Integer.parseInt(buyAskAmountTextField.getText()),
+                ((RadioButton) listingType.getSelectedToggle()).getText().equals("USD TO LBP")
+        );
+        String userToken = Authentication.getInstance().getToken();
+        String authHeader = userToken != null ? "Bearer " + userToken : null;
+        ExchangeService.exchangeApi().addListing(listing, authHeader).enqueue(new Callback<Object>() {
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                fetchListings();
+                Platform.runLater(() -> {
+                    phoneNumberTextField.setText("");
+                    sellAmountTextField.setText("");
+                    buyAskAmountTextField.setText("");
+                });
+            }
+            @Override
+            public void onFailure(Call<Object> call, Throwable throwable)
+            {
+            }
+        });
     }
 }

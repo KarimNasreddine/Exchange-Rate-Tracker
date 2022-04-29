@@ -36,4 +36,8 @@ public interface Exchange {
 
     @GET("/listings")
     Call<List<ListingsData>> getListings();
+
+    @POST("/listing")
+    Call<Object> addListing(@Body ListingsData listingsData,
+                                  @Header("Authorization") String authorization);
 }

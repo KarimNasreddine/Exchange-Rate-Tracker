@@ -10,7 +10,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.maarouf.exchange.listings.Listings"
             hgap="10"
-            vgap="10"
+            vgap="5"
             prefHeight="400.0"
             prefWidth="600.0"
             stylesheets="@listings.css">
@@ -18,9 +18,52 @@
     <Label styleClass="header"
            text="Listings"
            GridPane.columnSpan="2" />
+
+    <Label styleClass="value-label"
+           text="Sell Amount"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="1"/>
+    <TextField fx:id="sellAmountTextField"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="2"/>
+
+    <Label styleClass="value-label"
+           text="Buy Ask Amount"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="3"/>
+    <TextField fx:id="buyAskAmountTextField"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="4"/>
+
+    <Label styleClass="value-label"
+           text="Phone Number"
+           GridPane.columnIndex="0"
+           GridPane.rowIndex="5"/>
+    <TextField fx:id="phoneNumberTextField"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="6"/>
+
+    <RadioButton text="USD TO LBP"
+                 GridPane.columnIndex="0"
+                 GridPane.rowIndex="7">
+        <toggleGroup>
+            <ToggleGroup fx:id="listingType"/>
+        </toggleGroup>
+    </RadioButton>
+
+    <RadioButton text="LBP To USD"
+                 toggleGroup="$listingType"
+                 GridPane.columnIndex="0"
+                 GridPane.rowIndex="8"/>
+
+    <Button text="Add Listing"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="9"
+            onAction="#addListing"/>
+
     <ScrollPane
             GridPane.columnIndex="0"
-            GridPane.rowIndex="2">
+            GridPane.rowIndex="10">
         <VBox prefWidth="400">
         <children>
             <Label styleClass="value"

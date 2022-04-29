@@ -2,10 +2,10 @@
     -fx-background-color: whitesmoke;
 }
 .header {
-    -fx-font-size: 24;
+    -fx-font-size: 22;
 }
 .value-label {
-    -fx-font-size: 20;
+    -fx-font-size: 16;
 }
 .value {
     -fx-font-size: 14;

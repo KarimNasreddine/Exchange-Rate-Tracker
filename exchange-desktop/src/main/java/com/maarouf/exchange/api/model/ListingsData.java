@@ -28,6 +28,13 @@ public class ListingsData {
     @SerializedName("resolved_by_user")
     public Integer resolvedByUser;
 
+    public ListingsData(String userPhoneNumber, Integer sellingAmount, Integer buyingAmount, Boolean usdToLbp) {
+        this.userPhoneNumber = userPhoneNumber;
+        this.sellingAmount = sellingAmount;
+        this.buyingAmount = buyingAmount;
+        this.usdToLbp = usdToLbp;
+    }
+
     @Override
     public String toString() {
         return "ListingsData{" +
