@@ -18,6 +18,37 @@
         android:contentDescription="Add Transaction"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/baseline_list_24"
+        android:tint="@color/grey_80"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fab"
+        app:layout_constraintLeft_toLeftOf="@id/fab"
+        app:layout_constraintRight_toRightOf="@id/fab"
+        app:backgroundTint="@color/grey_20"
+        app:fabSize="mini"
+        app:rippleColor="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/baseline_paid_20"
+        android:tint="@color/grey_80"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fabList"
+        app:layout_constraintLeft_toLeftOf="@id/fab"
+        app:layout_constraintRight_toRightOf="@id/fab"
+        app:backgroundTint="@color/grey_20"
+        app:fabSize="mini"
+        app:rippleColor="@color/white" />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"

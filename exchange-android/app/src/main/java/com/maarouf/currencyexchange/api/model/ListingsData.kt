@@ -30,15 +30,9 @@ class ListingsData {
     @SerializedName("resolved_by_user")
     var resolvedByUser: Int? = null
 
-    fun ListingsData(
-        userPhoneNumber: String?,
-        sellingAmount: Int?,
-        buyingAmount: Int?,
-        usdToLbp: Boolean?
-    ) {
-        this.userPhoneNumber = userPhoneNumber
-        this.sellingAmount = sellingAmount
-        this.buyingAmount = buyingAmount
-        this.usdToLbp = usdToLbp
+    override fun toString(): String {
+        return "ListingsData(listingId=$listingId, postingUserId=$postingUserId, userPhoneNumber=$userPhoneNumber, sellingAmount=$sellingAmount, buyingAmount=$buyingAmount, usdToLbp=$usdToLbp, resolved=$resolved, resolvedByUser=$resolvedByUser)"
     }
+
+
 }
