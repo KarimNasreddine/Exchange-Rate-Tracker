@@ -33,4 +33,7 @@ public interface Exchange {
 
     @GET("/insights")
     Call<InsightsData> getInsightsData();
+
+    @GET("/listings")
+    Call<List<ListingsData>> getListings();
 }

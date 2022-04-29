@@ -22,6 +22,9 @@
             <Button fx:id="insightsButton" styleClass="nav-button"
                     text="Insights"
                     onAction="#insightsSelected"/>
+            <Button fx:id="listingsButton" styleClass="nav-button"
+                    text="Listings"
+                    onAction="#listingsSelected"/>
             <Button fx:id="loginButton" styleClass="nav-button"
                     text="Login" onAction="#loginSelected"/>
             <Button fx:id="registerButton" styleClass="nav-button"

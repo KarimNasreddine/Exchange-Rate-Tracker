@@ -57,6 +57,10 @@ public class Parent implements Initializable, OnPageCompleteListener{
         swapContent(Section.INSIGHTS);
     }
 
+    public void listingsSelected(ActionEvent actionEvent) {
+        swapContent(Section.LISTINGS);
+    }
+
     private void swapContent(Section section) {
         try {
             URL url = getClass().getResource(section.getResource());
@@ -90,7 +94,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
         LOGIN,
         REGISTER,
         GRAPH,
-        INSIGHTS;
+        INSIGHTS,
+        LISTINGS;
         public String getResource() {
             return switch (this) {
                 case RATES ->
@@ -105,6 +110,8 @@ public class Parent implements Initializable, OnPageCompleteListener{
                         "/com/maarouf/exchange/graph/graph.fxml";
                 case INSIGHTS ->
                         "/com/maarouf/exchange/insights/insights.fxml";
+                case LISTINGS ->
+                        "/com/maarouf/exchange/listings/listings.fxml";
                 default -> null;
             };
         }
