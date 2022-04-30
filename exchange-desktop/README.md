@@ -48,7 +48,7 @@ You can run the project by running the `Main.java` class under the package `com.
     ![img_2.png](img_2.png)
 * _exchange.api package_ communicates directly with the backend via the _ExchangeService_ which makes use of the _Exchange_ interface to define the calls. The _Exchange_ Interface uses the models found in the _exchange.models package_ to shape the responses returned from the API call. The models are _ExchangeRates, GraphDataPoints, InsightsData, ListingsData, Token, Transaction, and User_
 * _exchange.login_ and _exchange.register packages_ correspond to the login and register fxml-defined components. As their names suggest, they allow a new user to register to the platform, and an existing user to log into his account. Both of these components implement the _PageCompleter_ interface which will redirect the user to the "Currency Exchange" page (rates.fxml component) upon authentication.
-* _exchange.rates package_ contains the rates.fxml component and the Rates.java controller. It allows the user to view the average Exchange Currency Rate for the past specified number of days. It also gives him the possibility to convert, using the calculator, between LBP and USD currencies. In addition to that, this module allows users to add transactions performed by them into the database. 
+* _exchange.rates package_ contains the rates.fxml component and the Rates.java controller. It allows the user to view the average Exchange Currency Rate for the past 3 days. It also gives him the possibility to convert, using the calculator, between LBP and USD currencies. In addition to that, this module allows users to add transactions performed by them into the database. 
 
     ![img_3.png](img_3.png)
 
