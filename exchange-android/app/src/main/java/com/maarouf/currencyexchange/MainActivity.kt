@@ -233,23 +233,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addListing(listing: ListingsData) {
-        ExchangeService.exchangeApi().addListing(
-            listing,
-            if (Authentication.getToken() != null) "Bearer ${Authentication.getToken()}" else null
-        ).enqueue(object :
-            Callback<Any> {
-            override fun onResponse(call: Call<Any>, response:
-            Response<Any>) {
-                Snackbar.make(fab as View, "Listing added!",
-                    Snackbar.LENGTH_LONG)
-                    .show()
-            }
-            override fun onFailure(call: Call<Any>, t: Throwable) {
-                Snackbar.make(fab as View, "Could not add listing.",
-                    Snackbar.LENGTH_LONG)
-                    .show()
-            }
-        })
+        if (Authentication.getToken() != null){
+            ExchangeService.exchangeApi().addListing(
+                listing,
+                "Bearer ${Authentication.getToken()}"
+            ).enqueue(object :
+                Callback<Any> {
+                override fun onResponse(call: Call<Any>, response:
+                Response<Any>) {
+                    Snackbar.make(fab as View, "Listing added!",
+                        Snackbar.LENGTH_LONG)
+                        .show()
+                }
+                override fun onFailure(call: Call<Any>, t: Throwable) {
+                    Snackbar.make(fab as View, "Could not add listing.",
+                        Snackbar.LENGTH_LONG)
+                        .show()
+                }
+            })
+        }
+        else{
+            Snackbar.make(fab as View, "Could not add listing.",
+                Snackbar.LENGTH_LONG)
+                .show()
+        }
     }
 
     private fun addTransaction(transaction: Transaction) {
