@@ -42,15 +42,19 @@ listing_schema = ListingSchema()
 @app.route('/listing', methods=['POST'])
 def add_listing():
     auth_token = extract_auth_token(request)
-    # posting_user_id = request.json['PostingUserID']
-    user_phone_number = request.json['UserPhoneNumer']
-    money_amount = request.json['MoneyAmount']
-    usd_to_lbp = request.json['Usd_To_Lbp']
-    resolved = request.json['Resolved']
-    resolved_by_user = request.json['ResolvedByUser']
+    user_phone_number = request.json['user_phone_number']
+    selling_amount = request.json['selling_amount']
+    buying_amount = request.json['buying_amount']
+    usd_to_lbp = request.json['usd_to_lbp']
 
     try: 
-        listing = Listing(PostingUserID=decode_token(auth_token) if auth_token else None, UserPhoneNumer=user_phone_number, MoneyAmount=money_amount, Usd_To_Lbp=usd_to_lbp, Resolved=resolved, ResolvedByUser=resolved_by_user)
+        listing = Listing(posting_user_id=decode_token(auth_token) if auth_token else None,
+                          user_phone_number=user_phone_number,
+                          selling_amount=selling_amount,
+                          buying_amount=buying_amount,
+                          usd_to_lbp=usd_to_lbp,
+                          resolved=False,
+                          resolved_by_user=None)
         db.session.add(listing)
         db.session.commit()
     
@@ -60,10 +64,10 @@ def add_listing():
     return jsonify(listing_schema.dump(listing))
 
 
-@app.route('/listings ', methods=['GET'])
+@app.route('/listings', methods=['GET'])
 def get_listings():
     #get all the listings that are not resolved 
-    listings = Listing.query.filter_by(Resolved=False).all()
+    listings = Listing.query.filter_by(resolved=False).all()
     return jsonify(listing_schema.dump(listings, many=True))
     
 
