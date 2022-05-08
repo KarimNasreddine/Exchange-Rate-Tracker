@@ -80,5 +80,5 @@ The database has 3 models:
           
 ## Project Structure
 
-![Images/img.png](Images/img.png)
+![Images/Img.PNG](Images/Img.PNG)
 
