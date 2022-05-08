@@ -27,7 +27,11 @@ Follow the steps below to setup the backend:
   3. Install flask: `pip install Flask`
 4. To install the dependencies needed to run the application, run `pip install -r requirements.txt`.
 5. Make sure MySQL is installed on your machine. Visit: https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/
-6. To be able to access the built-in OpenAPI documentation, run `pip install flasgger`.
+6. Create a file at the top level named db_config.py, and one line to it:
+    * `DB_CONFIG = 'mysql+pymysql://{mysql_username}:{mysql_password}@{mysql_host}:{mysql_port}/{mysql_db_name}'`
+      * For example: `DB_CONFIG = 'mysql+pymysql://root:root@127.0.0.1:3306/exchange'`
+
+7. To be able to access the built-in OpenAPI documentation, run `pip install flasgger`.
 
 ### Step 2 : Run The Backend
 1. To run the flask application, write:
