@@ -29,7 +29,8 @@
            fx:id="sellOpenCloseLabel"
            text="N/A"
            GridPane.columnIndex="0"
-           GridPane.rowIndex="2"/>
+           GridPane.rowIndex="2"
+           GridPane.rowSpan="7"/>
 
     <Label styleClass="value-label"
            text="Buy Open-Close"
@@ -40,7 +41,8 @@
            fx:id="buyOpenCloseLabel"
            text="N/A"
            GridPane.columnIndex="2"
-           GridPane.rowIndex="2"/>
+           GridPane.rowIndex="2"
+           GridPane.rowSpan="7"/>
 
     <Label styleClass="header"
            text="Transactions"
