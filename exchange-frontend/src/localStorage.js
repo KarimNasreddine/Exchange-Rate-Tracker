@@ -1,12 +1,9 @@
 export function saveUserToken(userToken) {
-    localStorage.setItem("TOKEN", userToken);
+  localStorage.setItem("TOKEN", userToken);
 }
-
 export function getUserToken() {
-    return localStorage.getItem("TOKEN");
+  return localStorage.getItem("TOKEN");
 }
-
 export function clearUserToken() {
-    return localStorage.removeItem("TOKEN");
+  return localStorage.removeItem("TOKEN");
 }
-   

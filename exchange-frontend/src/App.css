@@ -4,21 +4,13 @@ body {
 }
 
 .wrapper {
-  margin-top: 50px;
+  margin-top: 3em;
   background-color: #fff;
   border-radius: 15px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 3em;
   padding: 30px;
-}
-
-.amount-input {
-  margin-bottom: 10px;
-}
-
-.button:hover {
-  cursor: pointer;
-  opacity: 0.75;
 }
 
 .wrapper hr {
@@ -27,19 +19,26 @@ body {
 
 @media only screen and (min-width: 1400px) {
   .wrapper {
-      width: 50%;
+    width: 50%;
   }
-  .wrapper input {
-      width: 600px;
+  .conversionDiv {
+    display: flex;
+    flex-direction: row !important;
+  }
+  .conversionText {
+    margin: 0 0 0 1em !important;
   }
 }
-
 @media only screen and (max-width: 1399px) and (min-width: 750px) {
   .wrapper {
-      width: 75%;
+    width: 75%;
   }
-  .wrapper input {
-      width: 400px;
+  .conversionDiv {
+    display: flex;
+    flex-direction: row !important;
+  }
+  .conversionText {
+    margin: 0 0 0 1em !important;
   }
 }
 
@@ -47,4 +46,29 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.conversionText {
+  margin: 1em 0;
+}
+
+.conversionDiv {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  padding-top: 1em;
+}
+
+.MuiTypography-h6 {
+  padding-top: 1em;
+}
+
+.tableTitle {
+  padding-bottom: 1em;
 }
