@@ -19,7 +19,9 @@ Please refer to the corresponding backend README.md file.
 
 ### Step 2 : Run The Project
 
-You can run the project by running the `npm run start` under in the terminal.
+1. Run `npm install` to install dependencies
+
+2. You can run the project by running the `npm run start` under in the terminal.
 
 ## Functionality Delivered
 
