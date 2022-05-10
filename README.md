@@ -39,5 +39,4 @@ It also supports the functionality of adding a listing by logged-in users.
 
 ### Architecture
 Below is a simple diagram that shows that whole system architecture. Feel free to read more about every platform used in their corresponding README.md file.
-
-	![430LArchitecture.drawio.png](430LArchitecture.drawio.png)
+	![](430LArchitecture.png)
