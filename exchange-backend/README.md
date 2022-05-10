@@ -1,7 +1,7 @@
 # Backend
 
 ## About
-This is EECE 430L project's Desktop Frontend. Developed by Maarouf Yassine with the help of the instructor Mohammad Chehab and my teammates Firas Abou Mrad, Youhanna Abou Jaoude, and Abded Karim Nasreddine
+This is EECE 430L project's Desktop Backend. Developed by Firas Abou Mrad and Youhanna Bou Jaoude with the help of the instructor Mohammad Chehab and our teammates Abded Karim Nasreddine and Maarouf Yassine
 
 ## Technologies and Libraries
 * The project was built using IntelliJ IDEA
