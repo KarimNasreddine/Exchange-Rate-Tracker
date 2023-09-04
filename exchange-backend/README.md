@@ -1,7 +1,10 @@
 # Backend
 
 ## About
-Developed by Abed Karim Nasreddine.
+
+# Developed by Abed Karim Nasreddine.
+
+This is EECE 430L project's Desktop Backend. Developed by Firas Abou Mrad and Youhanna Bou Jaoude with the help of the instructor Mohammad Chehab and our teammates Abded Karim Nasreddine and Maarouf Yassine
 
 ## Technologies and Libraries
 
@@ -18,7 +21,7 @@ Follow the steps below to setup the backend:
 1. Clone the repo:
 1. Create a new folder anywhere on your PC.
 1. Open CMD or Terminal and change the path to the new folder created.
-1. Write : git clone https://github.com/maarouf-yassine/Exchange-Rate-Tracker
+1. Write : git clone https://github.com/abedkarimnasreddine/Exchange-Rate-Tracker
 1. Install Flask:
 1. Inside the repo directory, initialize a virtual enviroment. Type:
    - `python3 -m venv venv` on MacOS or Linux.
@@ -88,7 +91,3 @@ The database has 3 models:
     - usd_to_lbp
     - resolved
     - resolved_by_user
-
-## Project Structure
-
-![Images/Img.PNG](Images/Img.PNG)
