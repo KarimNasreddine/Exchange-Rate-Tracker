@@ -2,7 +2,7 @@
 
 ## About
 
-This is EECE 430L project's Web Frontend. Developed by Abed Karim Nasreddine with the help of the instructor Mohammad Chehab and my teammates Firas Abou Mrad, Youhanna Abou Jaoude, and Maarouf Yassine
+Developed by Abed Karim Nasreddine.
 
 ## Technologies and Libraries
 
